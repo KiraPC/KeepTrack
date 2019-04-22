@@ -1,0 +1,20 @@
+[
+    {
+        "type": "text",
+        "name": "title",
+        "required": true,
+        "label": "Title"
+    },
+    {
+        "type": "number",
+        "name": "total",
+        "required": true,
+        "label": "Number of caps"
+    },
+    {
+        "type": "text",
+        "name": "img",
+        "required": false,
+        "label": "Picture"
+    }
+]
