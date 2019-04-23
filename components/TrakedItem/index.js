@@ -25,7 +25,7 @@ export default class TrakedItemModel extends Component {
 
     async _deleteItemModel() {
         await AsyncStorage.removeItem(this.item.id);
-        this.props.removeItem(this.item.id);
+        this.props.updateStateItems(this.item.id);
     }
 
     render() {

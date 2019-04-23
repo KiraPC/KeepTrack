@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import GenerateForm from 'react-native-form-builder';
 import { AsyncStorage, View, StyleSheet, Button } from 'react-native';
 
-import fields from '../config/formFields.json'
+import fields from '../../../config/formFields.json'
 
 export default class TrakedItemModel extends Component {
     constructor(props) {
@@ -19,14 +19,14 @@ export default class TrakedItemModel extends Component {
     }
 
     async _onSubmit() {
-        const values = this.form.getValues();
+        const newItem = this.form.getValues();
         const id = uuid.randomUI40().toString();
-        values.id = id;
+        newItem.id = id;
 
         try {
-            await AsyncStorage.setItem(id, JSON.stringify(values));
-            this.props.insertNewItem(values);
+            await AsyncStorage.setItem(id, JSON.stringify(newItem));
             this.props.hideModal();
+            this.props.onItemCreated(newItem);
         } catch (error) {
             console.log('_onSubmit', error);
         }
