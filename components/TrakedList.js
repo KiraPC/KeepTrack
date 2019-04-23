@@ -34,9 +34,7 @@ export default class TrakedList extends Component {
 
         try {
             const keys = await AsyncStorage.getAllKeys();
-            console.log('Getted Keys', keys);
             const values = await AsyncStorage.multiGet(keys);
-            console.log('Getted values', values);
 
             for (let i = 0; i < values.length; i++) {
                 const value = values[i][1];
@@ -74,7 +72,7 @@ export default class TrakedList extends Component {
     }
 
     render() {
-        return <View style={{ flex: 1, alignItems: 'flex-end' }}>
+        return <View style={{ alignItems: 'flex-end' }}>
             {
                 this.state.list.map((l, i) => (
                     <TrakedItem

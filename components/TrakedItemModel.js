@@ -29,7 +29,6 @@ export default class TrakedItemModel extends Component {
     }
 
     render() {
-        console.log('called TrakedItemModel render!', this.item.id);
         return <Card>
             <View style={styles.container}>
                 <Icon
