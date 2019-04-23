@@ -43,6 +43,8 @@ export default class ControllerButtons extends Component {
             <View style={styles.container}>
                 <Icon
                     name='remove-circle'
+                    color='#FF6600'
+                    underlayColor='#FFCC66'
                     onPress={() => { this._onPressIcon(this.subtraction.bind(this)) }}
                 />
                 <Text style={styles.content}>
@@ -50,11 +52,14 @@ export default class ControllerButtons extends Component {
                 </Text>
                 <Icon
                     name='add-circle'
+                    color='#FF6600'
+                    underlayColor='#FFCC66'
                     onPress={() => { this._onPressIcon(this.sum.bind(this)) }}
                 />
             </View>
-            <Progress.Bar style={styles.bar} 
-                progress={this.state.progress || 0} 
+            <Progress.Bar style={styles.bar}
+                progress={this.state.progress || 0}
+                color='#FF6600'
                 width={350} 
                 height={10} />
         </View>

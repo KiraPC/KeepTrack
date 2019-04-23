@@ -13,7 +13,7 @@ export default class TrakedItemModel extends Component {
                 onPress={this.props.onPress}>
                 <View>
                     <Icon name='add-circle'
-                        color='#00aced'
+                        color='#FF6600'
                         size={65} />
                 </View>
             </TouchableOpacity>

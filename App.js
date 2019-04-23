@@ -3,7 +3,7 @@ import { Header } from 'react-native-elements';
 import { View, FlatList, AsyncStorage } from 'react-native';
 
 import TrakedItem from './components/TrakedItem';
-import NewItem from './components/NewItem/index.';
+import NewItem from './components/NewItem';
 
 export default class App extends Component {
     constructor(props) {
@@ -22,19 +22,19 @@ export default class App extends Component {
                     trakedItems: prevState.trakedItems
                 }
             }
-        )
+        );
     }
 
     _getTrakedItem({ item }) {
         return (
-            <TrakedItem
+            <TrakedItem style={{backgroundColor:'#FF6600'}}
                 key={item.id}
                 id={item.id}
                 title={item.title}
                 img={item.img}
                 current={item.current}
                 total={item.total}
-                updateStateItems={this.updateStateItems.bind(this)}
+                updateStateItems={this._updateStateItems.bind(this)}
             />
         );
     }
@@ -57,21 +57,27 @@ export default class App extends Component {
         return items;
     }
 
-    async updateStateItems() {
+    async _updateStateItems() {
         const trakedItems = await this.fetchItems();
 
         this.setState({ trakedItems });
     }
 
     async componentWillMount() {
-        await this.updateStateItems();
+        await this._updateStateItems();
     }
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, backgroundColor: '#000008' }}>
                 <Header
-                    centerComponent={{ text: 'Traker', style: { color: '#fff' } }}
+                    centerComponent={{ text: 'KeepTraker', style: {
+                        color: '#000000',
+                        fontSize: 20,
+                        fontWeight: 'bold',
+                        fontFamily: 'Roboto'
+                    }}}
+                    backgroundColor='#FF6600'
                 />
                 <FlatList
                     data={this.state.trakedItems}

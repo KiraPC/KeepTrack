@@ -5,7 +5,7 @@ import { Card, Icon } from 'react-native-elements'
 import Item from './Item';
 import ControllerButtons from './ControllerButtons';
 
-export default class TrakedItemModel extends Component {
+export default class TrakedItem extends Component {
     constructor(props) {
         super(props);
 
@@ -25,14 +25,16 @@ export default class TrakedItemModel extends Component {
 
     async _deleteItemModel() {
         await AsyncStorage.removeItem(this.item.id);
-        this.props.updateStateItems(this.item.id);
+        this.props.updateStateItems();
     }
 
     render() {
-        return <Card>
+        return <Card containerStyle={{backgroundColor:'#FFCC66'}}>
             <View style={styles.container}>
                 <Icon
                     name='delete'
+                    color='#FF6600'
+                    underlayColor='#FFCC66'
                     onPress={this._deleteItemModel.bind(this)}
                 />
             </View>
